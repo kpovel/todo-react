@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  background: linear-gradient(to right, #ee9ca7, #ffdde1);
+}
+
+.App {
+  width: 476px;
+  min-height: 688px;
+  background-color: #fff;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.high-priority, .low-priority {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.text {
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+}
+
+.input {
+  width: 430px;
+  height: 40px;
+  border: none;
+  outline: none;
+}
+
+.priority {
+  margin: 9px;
+}
+
+.add-task {
+  border: 1px solid #989898;
+  box-sizing: border-box;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 12px;
+  width: 460px;
+  height: 45px;
+}
+
+.tasks {
+  width: 460px;
+  min-height: 45px;
+}
+
+.border {
+  width: 460px;
+  min-height: 45px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border: 1px solid #989898;
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkbox {
+  width: 21px;
+  height: 21px;
+  visibility: hidden;
+  margin: 12px;
+}
+.checkbox::before {
+  visibility: visible;
+  content: "";
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  background-image: url('./img/noChecked.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+}
+.checkbox[status=noChecked]::before {
+  background-image: url('./img/noChecked.svg');
+}
+.checkbox[status=checked]::before {
+  background-image: url('./img/checked.svg');
+}
+
+.task-name {
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  width: 370px;
+  display: flex;
+  align-items: center;
+  margin: 12px 0 12px;
+}
+
+.close-icon {
+  background-image: url('./img/close-icon.svg');
+  background-size: 15px;
+  width: 15px;
+  height: 15px;
+  background-repeat: no-repeat;
+  margin: 14px;
+  cursor: pointer;
+}
+
+.add-icon {
+  background-image: url('./img/add-icon.svg');
+  background-size: 17px;
+  height: 17px;
+  width: 17px;
+  position: relative;
+  right: 6px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
