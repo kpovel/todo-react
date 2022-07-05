@@ -2,9 +2,22 @@ import React, {useState} from 'react';
 import './App.css';
 
 function Task(props) {
+  const [taskClass, setTaskClass] = useState('task');
+  
+  function changeStatusTask(e) {
+    const isTaskChecked = e.target.classList.contains('noChecked');
+    if (isTaskChecked) {
+      e.target.classList.replace('noChecked', 'checked');
+      setTaskClass(item => item + ' taskChecked');
+    } else {
+      e.target.classList.replace('checked', 'noChecked');
+      setTaskClass('task');
+    }
+  }
+  
   return (
-    <div className="border">
-      <input type="checkbox" className="checkbox" status="noChecked"/>
+    <div className={taskClass}>
+      <input type="checkbox" className="checkbox noChecked" onClick={changeStatusTask}/>
       <div className="task-name">{props.taskName}</div>
       <div className="close-icon"/>
     </div>
@@ -50,12 +63,14 @@ function PriorityRow(props) {
   function setTaskName(e) {
     setName(e);
   }
+
   function clearInput() {
     setName('');
   }
   
   function addTaskToList() {
-    addTask(list => [...list, <Task taskName={taskName}></Task>]);
+    // eslint-disable-next-line react/jsx-key
+    addTask(list => [...list, <Task taskName={taskName}/>]);
   }
   
   return (

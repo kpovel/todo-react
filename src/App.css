@@ -52,7 +52,7 @@ body {
   min-height: 45px;
 }
 
-.border {
+.task {
   width: 460px;
   min-height: 45px;
   margin-bottom: 8px;
@@ -60,6 +60,9 @@ body {
   border: 1px solid #989898;
   display: flex;
   justify-content: space-between;
+}
+.taskChecked {
+  background-color: #F4F4F4;
 }
 
 .checkbox {
@@ -79,10 +82,10 @@ body {
   background-position: center center;
   cursor: pointer;
 }
-.checkbox[status=noChecked]::before {
+.noChecked::before {
   background-image: url('./img/noChecked.svg');
 }
-.checkbox[status=checked]::before {
+.checked::before {
   background-image: url('./img/checked.svg');
 }
 
