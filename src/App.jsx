@@ -54,7 +54,6 @@ function PriorityRow(props) {
     setName('');
   }
   
-  
   function addTaskToList() {
     addTask(list => [...list, <Task taskName={taskName}></Task>]);
   }
