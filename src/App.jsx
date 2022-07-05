@@ -69,8 +69,10 @@ function PriorityRow(props) {
   }
   
   function addTaskToList() {
-    // eslint-disable-next-line react/jsx-key
-    addTask(list => [...list, <Task taskName={taskName}/>]);
+    if (taskName){
+      // eslint-disable-next-line react/jsx-key
+      addTask(list => [...list, <Task taskName={taskName}/>]);
+    }
   }
   
   return (
