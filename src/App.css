@@ -13,7 +13,7 @@ body {
   justify-content: center;
 }
 
-.high-priority, .low-priority {
+.priorities{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -40,7 +40,7 @@ body {
   box-sizing: border-box;
   border-radius: 6px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin: 12px;
   width: 460px;
@@ -108,10 +108,18 @@ body {
 .add-icon {
   background-image: url('./img/add-icon.svg');
   background-size: 17px;
+  background-color: white;
+  border: 0;
   height: 17px;
   width: 17px;
   position: relative;
   right: 6px;
   cursor: pointer;
   background-repeat: no-repeat;
+}
+
+ul {
+  list-style-type: none;
+  margin-block: 0;
+  padding-inline: 0;
 }
