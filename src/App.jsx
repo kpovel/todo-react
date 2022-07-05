@@ -1,71 +1,39 @@
-import React, {useState} from 'react';
 import './App.css';
 
-function Task(props) {
+function TemplateTask() {
   return (
     <div className="border">
       <input type="checkbox" className="checkbox" status="noChecked"/>
-      <div className="task-name">{props.taskName}</div>
+      <div className="task-name">New task</div>
       <div className="close-icon"/>
     </div>
   );
 }
 
-function Lists(props) {
+function Tasks() {
   return (
-    <ul className="tasks">
-      {props.taskList.map((item, index) => {
-        return <li key={index}>{item}</li>;
-      })}
-    </ul>
+    <div className="tasks">
+      <TemplateTask/>
+    </div>
   );
 }
 
-function Header(props) {
+function AddTasks(props) {
   const placeholder = props.priority === 'HIGH' ? 'Додати важливу задачу' : 'Додати задачу';
-  
-  function handleSubmit(e) {
-    props.addTask();
-    
-    props.clearInput('');
-    e.preventDefault();
-  }
-  
-  function handleChange(e) {
-    props.onHandleChange(e.target.value);
-  }
-  
   return (
-    <form className="add-task" onSubmit={handleSubmit}>
-      <input className="input text" placeholder={placeholder} autoComplete="off"
-        onChange={handleChange} value={props.taskName}/>
-      <button type="submit" className="add-icon"/>
-    </form>
+    <div className="add-task">
+      <input className="input text" type="text" placeholder={placeholder} autoComplete="off"/>
+      <div className="add-icon"/>
+    </div>
   );
 }
 
-function PriorityRow(props) {
-  const [taskName, setName] = useState('');
-  const [taskList, addTask] = useState([]);
-  
-  function setTaskName(e) {
-    setName(e);
-  }
-  function clearInput() {
-    setName('');
-  }
-  
-  
-  function addTaskToList() {
-    addTask(list => [...list, <Task taskName={taskName}></Task>]);
-  }
-  
+function TaskList(props) {
   return (
-    <div className="priorities">
+    <div className="high-priority">
       <div className="text">{props.priority}</div>
-      <Header priority={props.priority} onHandleChange={setTaskName} addTask={addTaskToList} clearInput={clearInput}
-        taskName={taskName}/>
-      <Lists taskList={taskList}/>
+      <AddTasks priority={props.priority}/>
+      <Tasks/>
     </div>
   );
 }
@@ -74,8 +42,8 @@ function App() {
   return (
     <div className="App">
       <div className="priority">
-        <PriorityRow priority='HIGH'/>
-        <PriorityRow priority='LOW'/>
+        <TaskList priority='HIGH'/>
+        <TaskList priority='LOW'/>
       </div>
     </div>
   );
