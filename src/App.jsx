@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 function Task(props) {
@@ -17,7 +17,6 @@ function Lists(props) {
       {props.taskList.map((item, index) => {
         return <li key={index}>{item}</li>;
       })}
-      {/*<Task/>*/}
     </ul>
   );
 }
@@ -26,11 +25,9 @@ function Header(props) {
   const placeholder = props.priority === 'HIGH' ? 'Додати важливу задачу' : 'Додати задачу';
   
   function handleSubmit(e) {
-    //todo
-    props.addTask();
-    
-    props.clearInput('');
     e.preventDefault();
+    props.addTask();
+    props.clearInput('');
   }
   
   function handleChange(e) {
@@ -59,7 +56,6 @@ function PriorityRow(props) {
   
   
   function addTaskToList() {
-    // todo
     addTask(list => [...list, <Task taskName={taskName}></Task>]);
   }
   
