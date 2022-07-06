@@ -11,7 +11,6 @@ function List(props) {
   return (
     <ul className="tasks">
       {/*todo: rewrite this*/}
-      
       {props.taskList.map((item) => {
           return <Task handleRemove={() => handleRemove(item)} taskName={item} key={item}/>;
         })}

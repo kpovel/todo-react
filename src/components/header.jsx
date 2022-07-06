@@ -8,7 +8,7 @@ function Header(props) {
   function handleSubmit(e) {
     e.preventDefault();
     props.addTask();
-    props.clearInput('');
+    props.clearInput();
   }
   
   function handleChange(e) {

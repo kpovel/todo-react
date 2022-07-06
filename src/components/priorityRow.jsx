@@ -1,13 +1,21 @@
-import React, {useState} from 'react';
+import React, {useReducer, useState} from 'react';
 import {Header} from './header';
 import {List} from './taskList';
 
 export {PriorityRow};
 
+function listReducer(state, action) {
+  switch (action.type) {
+    case  'ADD_ITEM':
+      return [...state, action.taskName];
+    case 'REMOVE_ITEM':
+      return state.filter((item) => item !== action.id);
+  }
+}
 
 function PriorityRow(props) {
   const [taskName, setName] = useState('');
-  const [taskList, setList] = useState([]);
+  const [taskList, setList] = useReducer(listReducer, []);
   
   function setTaskName(e) {
     setName(e);
@@ -24,13 +32,11 @@ function PriorityRow(props) {
       return alert('Enter a valid task name');
     }
     
-    setList(list => [...list, taskName]);
+    setList({type: 'ADD_ITEM', taskName});
   }
   
   function handleRemove(id) {
-    const newList = taskList.filter((item) => item !== id);
-    setList(newList);
-    
+    setList({type: 'REMOVE_ITEM', id});
   }
   
   return (
