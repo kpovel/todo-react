@@ -77,16 +77,16 @@ body {
   display: inline-block;
   width: 21px;
   height: 21px;
-  background-image: url('./img/noChecked.svg');
+  background-image: url('../img/noChecked.svg');
   background-repeat: no-repeat;
   background-position: center center;
   cursor: pointer;
 }
 .noChecked::before {
-  background-image: url('./img/noChecked.svg');
+  background-image: url('../img/noChecked.svg');
 }
 .checked::before {
-  background-image: url('./img/checked.svg');
+  background-image: url('../img/checked.svg');
 }
 
 .task-name {
@@ -99,7 +99,7 @@ body {
 }
 
 .close-icon {
-  background-image: url('./img/close-icon.svg');
+  background-image: url('../img/close-icon.svg');
   background-size: 15px;
   width: 15px;
   height: 15px;
@@ -109,7 +109,7 @@ body {
 }
 
 .add-icon {
-  background-image: url('./img/add-icon.svg');
+  background-image: url('../img/add-icon.svg');
   background-size: 17px;
   background-color: white;
   border: 0;
